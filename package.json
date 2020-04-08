@@ -1,0 +1,20 @@
+{
+  "name": "cookieguard",
+  "version": "0.0.0",
+  "description": "Handle cookies in compliance with GDPR",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiasthaden/cookieguard.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Tobias Thaden",
+    "email": "hello@tobiasthaden.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiasthaden/cookieguard/issues"
+  },
+  "homepage": "https://github.com/tobiasthaden/cookieguard#readme"
+}
