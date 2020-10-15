@@ -12,7 +12,7 @@ export class Consent {
             return true;
         }
 
-        return Date.parse(this.settings.expires) <= new Date();
+        return parseInt(this.settings.expires) <= (new Date()).getTime();
     }
 
     fetchSettings() {
