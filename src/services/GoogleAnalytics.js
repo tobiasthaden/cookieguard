@@ -1,18 +1,18 @@
-import { expireCookie } from "./helpers";
+import Service from "./Service";
+import { expireCookie } from "../helpers";
 
-export default class GoogleAnalytics {
+export default class GoogleAnalytics extends Service{
     constructor(id, domain, path) {
-        path = path || "";
-        domain = domain || "";
+        super(domain, path);
 
         this.id = id;
-        this.cookie = { domain, path };
     }
 
     enable() {
-        this.embedScript();
+        this._embedScript();
 
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -29,14 +29,12 @@ export default class GoogleAnalytics {
         expireCookie(_gtag, this.cookie.domain, this.cookie.path);
     }
 
-    embedScript() {
+    _embedScript() {
         let script = document.createElement("script");
         script.async = true;
         script.src = `https://www.googletagmanager.com/gtag/js?id=${this.id}`;
         document
             .getElementsByTagName("head")[0]
             .appendChild(script, document.getElementsByTagName("head")[0]);
-
-        return this;
     }
 }
