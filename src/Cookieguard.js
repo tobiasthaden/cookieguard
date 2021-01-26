@@ -1,6 +1,6 @@
 import { tap } from "./helpers";
 
-export class Consent {
+export default class Cookieguard {
     constructor(modules) {
         this.modules = modules || {};
 
@@ -8,7 +8,7 @@ export class Consent {
     }
 
     isExpired() {
-        if (!this.settings.hasOwnProperty(expires)) {
+        if (!this.settings.hasOwnProperty('expires')) {
             return true;
         }
 
@@ -21,21 +21,25 @@ export class Consent {
     }
 
     update(modules) {
-        let now = new Date();
+            let now = new Date();
 
-        // expires in 14 days
-        let expires = now.setDate(now.getDate() + 14);
+            // expires in 14 days
+            let expires = now.setDate(now.getDate() + 14);
 
-        window.localStorage.setItem(
-            "_jar",
-            JSON.stringify({ modules, expires })
-        );
+            this.settings = { modules, expires };
 
-        this.handle(modules);
+            window.localStorage.setItem(
+                "_jar",
+                JSON.stringify(this.settings)
+            );
+
+            this.handle(modules);
     }
 
     handle(keys) {
         let modules = Object.keys(this.modules);
+
+        keys = keys || [];
 
         modules
             .filter((item) => keys.includes(item))
