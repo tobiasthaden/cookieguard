@@ -5,6 +5,8 @@ export default class Cookieguard {
         this.modules = modules || {};
 
         this.fetchSettings();
+
+        this.hydrate();
     }
 
     isExpired() {
@@ -18,6 +20,12 @@ export default class Cookieguard {
     fetchSettings() {
         let settings = window.localStorage.getItem("_jar");
         this.settings = settings ? JSON.parse(settings) : {};
+    }
+
+    hydrate() {
+        if (! this.isExpired()) {
+            this.handle(this.settings.modules);
+        }
     }
 
     update(modules) {
