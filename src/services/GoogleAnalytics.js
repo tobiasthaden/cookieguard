@@ -1,5 +1,5 @@
-import Service from "./Service";
-import { expireCookie } from "../helpers";
+import Service from "./Service.js";
+import { expireCookie } from "../helpers.js";
 
 export default class GoogleAnalytics extends Service{
     constructor(id, domain, path) {

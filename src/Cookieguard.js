@@ -1,4 +1,4 @@
-import { tap } from "./helpers";
+import { tap } from "./helpers.js";
 
 export default class Cookieguard {
     constructor(modules) {
