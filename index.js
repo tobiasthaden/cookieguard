@@ -6,3 +6,6 @@ export const Service = AbstractService;
 
 import GoogleAnalyticsService from "./src/services/GoogleAnalytics.js";
 export const GoogleAnalytics = GoogleAnalyticsService;
+
+import FacebookPixelService from "./src/services/FacebookPixel.js";
+export const FacebookPixel = FacebookPixelService;
