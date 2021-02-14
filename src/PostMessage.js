@@ -6,10 +6,10 @@ export default class PostMessage {
             ._setValidOrigins();
     }
 
-    static enable(key) {
+    static enable(keys) {
         window.parent.postMessage({
             cookieguard: {
-                module: key,
+                modules: keys,
                 type: 'enable'
             }
         }, window);
@@ -22,7 +22,7 @@ export default class PostMessage {
             }
 
             if (event.data.cookieguard) {
-                this.cookieguard[event.data.cookieguard.type](event.data.cookieguard.module)
+                this.cookieguard[event.data.cookieguard.type](event.data.cookieguard.modules)
             }
         }, false);
 

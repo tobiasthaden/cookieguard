@@ -29,9 +29,9 @@ export default class Cookieguard {
         }
     }
 
-    enable(key) {
+    enable(keys) {
         this.update(
-            [...this.settings.modules, key],
+            [...this.settings.modules, ...keys],
             parseInt(this.settings.expires)
         );
     }
