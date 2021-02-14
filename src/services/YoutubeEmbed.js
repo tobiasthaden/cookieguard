@@ -5,14 +5,30 @@ export default class YoutubeEmbed extends Service{
     constructor(fallbackUrl, domain, path) {
         super(domain, path);
 
-        this.fallbackUrl = fallBackUrl;
+        this._fetchEmbeds();
+
+        this.fallbackUrl = fallbackUrl;
     }
 
     enable() {
-        // TODO: fetch all youtube iframes and hydrate the src attribute from data attribute.
+        this.embeds.forEach(iframe => {
+            let src = iframe.getAttribute('youtube-src');
+            iframe.setAttribute('src', src);
+        });
     }
 
     disable() {
-        // TODO: fetch all youtube iframes, set src attribute to the fallback url and expire cookies.
+        this.embeds.forEach(iframe =>
+            iframe.setAttribute('src', this.fallbackUrl)
+        );
+
+        expireCookie('CONSENT', '.youtube.com', '/');
+        expireCookie('PREF', '.youtube.com', '/');
+        expireCookie('VISITOR_INFO1_LIVE', '.youtube.com', '/');
+        expireCookie('YSC', '.youtube.com', '/');
+    }
+
+    _fetchEmbeds() {
+        this.embeds = [...document.querySelectorAll("[youtube-src]")]
     }
 }
