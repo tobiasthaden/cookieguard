@@ -3,7 +3,7 @@ export default class PostMessage {
         this.cookieguard = cookieguard;
 
         this._registerListener()
-            ._setValidPostMessageOrigins();
+            ._setValidOrigins();
     }
 
     static enable(key) {
@@ -26,7 +26,7 @@ export default class PostMessage {
         return this;
     }
 
-    _setValidPostMessageOrigins() {
+    _setValidOrigins() {
         let modules = Object.keys(this.cookieguard.modules);
 
         let origins = modules.map((key) => {
