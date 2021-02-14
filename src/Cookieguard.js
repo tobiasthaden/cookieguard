@@ -1,17 +1,13 @@
 import { tap } from "./helpers.js";
+import PostMessage from "./PostMessage.js";
 
 export default class Cookieguard {
     constructor(modules) {
         this.modules = modules || {};
+        this.messenger = new PostMessage(this);
 
         this.fetchSettings();
-
-        this._listenForPostMessages();
-
         this.hydrate();
-
-        console.log(this.modules);
-        console.log(this.settings);
     }
 
     isExpired() {
@@ -33,11 +29,21 @@ export default class Cookieguard {
         }
     }
 
-    update(modules) {
+    enable(key) {
+        this.update(
+            [...this.settings.modules, key],
+            parseInt(this.settings.expires)
+        );
+    }
+
+    static post() {
+        return PostMessage;
+    }
+
+    update(modules, expires) {
             let now = new Date();
 
-            // expires in 14 days
-            let expires = now.setDate(now.getDate() + 14);
+            expires = expires || now.setDate(now.getDate() + 14);
 
             this.settings = { modules, expires };
 
@@ -52,8 +58,6 @@ export default class Cookieguard {
     handle(keys) {
         let modules = Object.keys(this.modules);
 
-        this._setValidPostMessageOrigins(modules);
-
         keys = keys || [];
 
         modules
@@ -63,35 +67,5 @@ export default class Cookieguard {
         modules
             .filter((item) => !keys.includes(item))
             .map((key) => tap(this.modules[key], (module) => module.disable()));
-    }
-
-    static updateFromIFrame(key) {
-        window.parent.postMessage({ cookieguard: {module: key}}, window);
-    }
-
-    _setValidPostMessageOrigins(modules) {
-        let origins = modules.map((key) => {
-            if (this.modules[key]['fallbackUrl']) {
-                let url = new URL(this.modules[key]['fallbackUrl']);
-                let { origin } = url;
-                return origin;
-            }
-        }).filter(origin => origin);
-
-        this.postMessageOrigins = origins;
-    }
-
-    _listenForPostMessages() {
-        window.addEventListener("message", (event) => {
-            if (!this.postMessageOrigins.includes(event.origin)) {
-                return;
-            }
-
-            if (event.data.cookieguard) {
-                this.settings.modules.push(event.data.cookieguard.module)
-                this.hydrate();
-            }
-
-          }, false);
     }
 }
