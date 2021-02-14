@@ -8,7 +8,10 @@ export default class PostMessage {
 
     static enable(key) {
         window.parent.postMessage({
-            cookieguard: { module: key }
+            cookieguard: {
+                module: key,
+                type: 'enable'
+            }
         }, window);
     }
 
@@ -19,7 +22,7 @@ export default class PostMessage {
             }
 
             if (event.data.cookieguard) {
-                this.cookieguard.enable(event.data.cookieguard.module)
+                this.cookieguard[event.data.cookieguard.type](event.data.cookieguard.module)
             }
         }, false);
 
