@@ -18,7 +18,7 @@ npm i cookieguard
 ```
 
 > **Note:**
-> Cookieguard uses ECMAScript 2015+. We recommend using `Babel` to suppert current and older browsers.
+> Cookieguard uses ECMAScript 2015+. We recommend using `Babel` to support current and older browsers.
 
 ### Quick start
 Cookieguard ships with a handful of integrations for the most common services. You may provide the requiered configurations to a `Service` instance and register this services with `Cookieguard`. Now we already have a fully configured cookieguard instance.
@@ -83,14 +83,14 @@ cookieguard.update([]);
 ```
 
 ## Service providers
-Service providers are adapters to integrate services into cookiguard.
+Service providers are adapters to integrate services into cookieguard.
 
 ### Google Analytics
 Cookieguard ships with a Google Analytics service provider. The service provider supports both the base implementation and the TagManager. The `anonomyzeIp` option is set automatically. To integrate Google Analytics, you just need to provide your *Tracking ID* and register the service.
 ```js
-import {GoogleAnalytcis} from 'cookieguard';
+import { GoogleAnalytics } from 'cookieguard';
 
-new GoogleAnalytcs('UA-0000000-1');
+new GoogleAnalytics('UA-0000000-1');
 ```
 
 ## Extending cookieguard
