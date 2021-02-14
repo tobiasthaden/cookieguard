@@ -17,7 +17,7 @@ export default class PostMessage {
 
     _registerListener() {
         window.addEventListener("message", (event) => {
-            if (!this.postMessageOrigins.includes(event.origin)) {
+            if (!this.origins.includes(event.origin)) {
                 return;
             }
 
@@ -41,7 +41,7 @@ export default class PostMessage {
             }
         });
 
-        this.postMessageOrigins = origins.filter(origin => origin);
+        this.origins = origins.filter(origin => origin);
 
         return this;
     }
