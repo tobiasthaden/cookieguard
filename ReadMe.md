@@ -93,6 +93,14 @@ import { GoogleAnalytics } from 'cookieguard';
 new GoogleAnalytics('UA-0000000-1');
 ```
 
+### Facebook Pixel
+To integrate a Facebook Pixel, you just need to provide your *Pixel ID* and register the service. The service automatically sets the `PageView` event.
+```js
+import { FacebookPixel } from 'cookieguard';
+
+new FacebookPixel('12345600000000');
+```
+
 ## Extending cookieguard
 You can easily extend cookieguard by creating your own service providers. A service provider must provide an `enable` and a `disable` method and should extend the base `Service` class.
 
