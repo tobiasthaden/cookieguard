@@ -1,11 +1,12 @@
 import { tap } from "./helpers.js";
+import PostMessage from "./PostMessage.js";
 
 export default class Cookieguard {
     constructor(modules) {
         this.modules = modules || {};
+        this.messenger = new PostMessage(this);
 
         this.fetchSettings();
-
         this.hydrate();
     }
 
@@ -28,11 +29,21 @@ export default class Cookieguard {
         }
     }
 
-    update(modules) {
+    enable(keys) {
+        this.update(
+            [...this.settings.modules, ...keys],
+            parseInt(this.settings.expires)
+        );
+    }
+
+    static post() {
+        return PostMessage;
+    }
+
+    update(modules, expires) {
             let now = new Date();
 
-            // expires in 14 days
-            let expires = now.setDate(now.getDate() + 14);
+            expires = expires || now.setDate(now.getDate() + 14);
 
             this.settings = { modules, expires };
 

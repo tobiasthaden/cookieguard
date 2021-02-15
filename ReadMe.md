@@ -58,6 +58,7 @@ To register services, initialize a new `Cookieguard` instance with a set of serv
 const cookieguard = new Cookieguard({
   ga: new GoogleAnalytics('UA-0000000-1'),
   fb: new FacebookPixel('12345600000000'),
+  yt: new YoutubeEmbed('https://example.com/youtube-fallback'),
   ...
 })
 ```
@@ -75,11 +76,17 @@ cookieguard.hydrate();
 To enable or disable services, you can call the `update` method. All services that are provided will be enabled, all other registered services will be disabled.
 
 ```js
-// This enables `GoogleAnaltics`.
+// This enables only `GoogleAnaltics`.
 cookieguard.update(['ga']);
 
 // This disables all services.
 cookieguard.update([]);
+```
+
+In addition to the `update` method, you may call the `enable` method. The `enable` method does not update the expiration date.
+```js
+// This appends `Google Analytics` to the enabled services.
+cookieguard.enable(['ga']);
 ```
 
 ## Service providers
@@ -99,6 +106,33 @@ To integrate a Facebook Pixel, you just need to provide your *Pixel ID* and regi
 import { FacebookPixel } from 'cookieguard';
 
 new FacebookPixel('12345600000000');
+```
+
+### YouTube Embeds
+
+To handle embedded YouTube videos, Cookieguard ships with a `YoutubeEmbed` provider. When the service is enabled, it loads the video from a `youtube-src` attribute.
+
+```html
+<iframe width="560" height="315" youtube-src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+```
+
+The `YoutubeEmbed` provider expects a fallback URL to be rendered when the service is disabled.
+
+> *Note:* You may allow to enable the service from your fallback via the `Cookieguard.post` method.
+
+```js
+import { YoutubeEmbed } from 'cookieguard';
+
+new YoutubeEmbded('https://example.com/youtube-fallback');
+```
+
+## Post messaging
+Cookieguard allows to enable services from within `iframe`s via the static `post` method.
+
+```js
+import Cookieguard from 'cookieguard';
+
+Cookieguard.post().enable(['yt']);
 ```
 
 ## Extending cookieguard
