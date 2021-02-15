@@ -11,11 +11,11 @@ export default class Cookieguard {
     }
 
     isExpired() {
-        if (!this.settings.hasOwnProperty('expires')) {
+        if (!this.settings.hasOwnProperty("expires")) {
             return true;
         }
 
-        return parseInt(this.settings.expires) <= (new Date()).getTime();
+        return parseInt(this.settings.expires) <= new Date().getTime();
     }
 
     fetchSettings() {
@@ -24,7 +24,7 @@ export default class Cookieguard {
     }
 
     hydrate() {
-        if (! this.isExpired()) {
+        if (!this.isExpired()) {
             this.handle(this.settings.modules);
         }
     }
@@ -41,18 +41,15 @@ export default class Cookieguard {
     }
 
     update(modules, expires) {
-            let now = new Date();
+        let now = new Date();
 
-            expires = expires || now.setDate(now.getDate() + 14);
+        expires = expires || now.setDate(now.getDate() + 14);
 
-            this.settings = { modules, expires };
+        this.settings = { modules, expires };
 
-            window.localStorage.setItem(
-                "_jar",
-                JSON.stringify(this.settings)
-            );
+        window.localStorage.setItem("_jar", JSON.stringify(this.settings));
 
-            this.handle(modules);
+        this.handle(modules);
     }
 
     handle(keys) {
@@ -61,11 +58,11 @@ export default class Cookieguard {
         keys = keys || [];
 
         modules
-            .filter((item) => keys.includes(item))
-            .map((key) => tap(this.modules[key], (module) => module.enable()));
+            .filter(item => keys.includes(item))
+            .map(key => tap(this.modules[key], module => module.enable()));
 
         modules
-            .filter((item) => !keys.includes(item))
-            .map((key) => tap(this.modules[key], (module) => module.disable()));
+            .filter(item => !keys.includes(item))
+            .map(key => tap(this.modules[key], module => module.disable()));
     }
 }

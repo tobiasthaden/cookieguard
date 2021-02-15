@@ -1,7 +1,7 @@
 import Service from "./Service.js";
 import { expireCookie } from "../helpers.js";
 
-export default class GoogleAnalytics extends Service{
+export default class GoogleAnalytics extends Service {
     constructor(id, domain, path) {
         super(domain, path);
 

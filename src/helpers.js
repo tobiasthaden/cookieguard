@@ -1,4 +1,4 @@
-export const expireCookie = function (name, domain, path) {
+export const expireCookie = function(name, domain, path) {
     document.cookie =
         name +
         "=" +
@@ -7,7 +7,7 @@ export const expireCookie = function (name, domain, path) {
         ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
 };
 
-export const tap = function (value, callback) {
+export const tap = function(value, callback) {
     callback(value);
     return value;
 };

@@ -1,7 +1,7 @@
 import Service from "./Service.js";
 import { expireCookie } from "../helpers.js";
 
-export default class YoutubeEmbed extends Service{
+export default class YoutubeEmbed extends Service {
     constructor(fallbackUrl, domain, path) {
         super(domain, path);
 
@@ -12,23 +12,23 @@ export default class YoutubeEmbed extends Service{
 
     enable() {
         this.embeds.forEach(iframe => {
-            let src = iframe.getAttribute('youtube-src');
-            iframe.setAttribute('src', src);
+            let src = iframe.getAttribute("youtube-src");
+            iframe.setAttribute("src", src);
         });
     }
 
     disable() {
         this.embeds.forEach(iframe =>
-            iframe.setAttribute('src', this.fallbackUrl)
+            iframe.setAttribute("src", this.fallbackUrl)
         );
 
-        expireCookie('CONSENT', '.youtube.com', '/');
-        expireCookie('PREF', '.youtube.com', '/');
-        expireCookie('VISITOR_INFO1_LIVE', '.youtube.com', '/');
-        expireCookie('YSC', '.youtube.com', '/');
+        expireCookie("CONSENT", ".youtube.com", "/");
+        expireCookie("PREF", ".youtube.com", "/");
+        expireCookie("VISITOR_INFO1_LIVE", ".youtube.com", "/");
+        expireCookie("YSC", ".youtube.com", "/");
     }
 
     _fetchEmbeds() {
-        this.embeds = [...document.querySelectorAll("[youtube-src]")]
+        this.embeds = [...document.querySelectorAll("[youtube-src]")];
     }
 }

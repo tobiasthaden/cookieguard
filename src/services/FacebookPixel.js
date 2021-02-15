@@ -11,11 +11,11 @@ export default class FacebookPixel extends Service {
     enable() {
         this._embedScript();
 
-        let fbq = window.fbq = function () {
+        let fbq = (window.fbq = function() {
             fbq.callMethod
                 ? fbq.callMethod.apply(fbq, arguments)
                 : fbq.queue.push(arguments);
-        }
+        });
 
         if (!window._fbq) {
             window._fbq = fbq;
@@ -26,8 +26,8 @@ export default class FacebookPixel extends Service {
         fbq.version = "2.0";
         fbq.queue = [];
 
-        fbq("init", this.id)
-        fbq("track", "PageView")
+        fbq("init", this.id);
+        fbq("track", "PageView");
     }
 
     disable() {
