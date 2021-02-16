@@ -17,6 +17,30 @@ export default class PostMessage {
         );
     }
 
+    static disable(keys) {
+        window.parent.postMessage(
+            {
+                cookieguard: {
+                    modules: keys,
+                    type: "disable"
+                }
+            },
+            window
+        );
+    }
+
+    static update(keys) {
+        window.parent.postMessage(
+            {
+                cookieguard: {
+                    modules: keys,
+                    type: "update"
+                }
+            },
+            window
+        );
+    }
+
     _registerListener() {
         window.addEventListener(
             "message",

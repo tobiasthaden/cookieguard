@@ -130,7 +130,7 @@ new YoutubeEmbded('https://example.com/youtube-fallback');
 ```
 
 ## Post messaging
-Cookieguard allows to enable services from within `iframe`s via the static `post` method.
+Cookieguard allows to `enable`, `disable` or `update` services from within `iframe`s via the static `post` method.
 
 ```js
 import Cookieguard from 'cookieguard';
