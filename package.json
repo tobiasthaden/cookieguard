@@ -1,6 +1,6 @@
 {
   "name": "cookieguard",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Handle third party services in compliance with the GDPR",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,10 @@
     "url": "git+https://github.com/tobiasthaden/cookieguard.git"
   },
   "keywords": [
-    "cookie-consent", "opt-ins", "opt-out", "gdpr"
+    "cookie-consent",
+    "opt-ins",
+    "opt-out",
+    "gdpr"
   ],
   "author": {
     "name": "Tobias Thaden",
