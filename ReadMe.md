@@ -146,7 +146,7 @@ class AcmeService extends Service {
     // Enable my service...
   }
 
-  diable() {
+  disable() {
     // Disable my service...
   }
 }
