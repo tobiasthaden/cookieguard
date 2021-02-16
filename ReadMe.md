@@ -83,10 +83,13 @@ cookieguard.update(['ga']);
 cookieguard.update([]);
 ```
 
-In addition to the `update` method, you may call the `enable` method. The `enable` method does not update the expiration date.
+In addition to the `update` method, you may call the `enable` or `disable` methods. These methods does not update the expiration date.
 ```js
 // This appends `Google Analytics` to the enabled services.
 cookieguard.enable(['ga']);
+
+// This removes `Google Analytics` from the enabled services.
+cookieguard.disable(['ga']);
 ```
 
 ## Service providers

@@ -36,6 +36,13 @@ export default class Cookieguard {
         );
     }
 
+    disable(keys) {
+        this.update(
+            this.settings.modules.filter(key => !keys.includes(key)),
+            parseInt(this.settings.expires)
+        );
+    }
+
     static post() {
         return PostMessage;
     }
