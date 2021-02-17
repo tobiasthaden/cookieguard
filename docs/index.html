@@ -4,7 +4,10 @@
         <meta charset="UTF-8" />
         <title>Cookieguard.js</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="Handle third party services in compliance with the GDPR" />
+        <meta
+            name="description"
+            content="Handle third party services in compliance with the GDPR"
+        />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
@@ -24,11 +27,19 @@
         <script>
             window.$docsify = {
                 themeColor: "#3e5f8a",
-                repo: 'tobiasthaden/cookieguard',
-                homepage: "https://raw.githubusercontent.com/tobiasthaden/cookieguard/master/ReadMe.md",
+                repo: "tobiasthaden/cookieguard",
+                homepage:
+                    "https://raw.githubusercontent.com/tobiasthaden/cookieguard/master/ReadMe.md",
+                copyCode: {
+                    buttonText:
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.143 13.244l.837-2.244 2.698 5.641-5.678 2.502.805-2.23s-8.055-3.538-7.708-10.913c2.715 5.938 9.046 7.244 9.046 7.244zm8.857-7.244v18h-18v-6h-6v-18h18v6h6zm-2 2h-12.112c-.562-.578-1.08-1.243-1.521-2h7.633v-4h-14v14h4v-3.124c.6.961 1.287 1.823 2 2.576v6.548h14v-14z"/></svg>',
+                    errorText: "Error",
+                    successText: "Copied"
+                }
             };
         </script>
         <!-- Docsify v4 -->
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+        <script src="https://unpkg.com/docsify-copy-code@2"></script>
     </body>
 </html>
