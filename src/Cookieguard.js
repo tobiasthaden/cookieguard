@@ -1,5 +1,5 @@
-import { tap } from "./helpers.js";
-import PostMessage from "./PostMessage.js";
+import { tap } from './helpers.js';
+import PostMessage from './PostMessage.js';
 
 export default class Cookieguard {
     constructor(modules) {
@@ -11,7 +11,7 @@ export default class Cookieguard {
     }
 
     isExpired() {
-        if (!this.settings.hasOwnProperty("expires")) {
+        if (!this.settings.hasOwnProperty('expires')) {
             return true;
         }
 
@@ -19,7 +19,7 @@ export default class Cookieguard {
     }
 
     fetchSettings() {
-        let settings = window.localStorage.getItem("_jar");
+        let settings = window.localStorage.getItem('_jar');
         this.settings = settings ? JSON.parse(settings) : {};
     }
 
@@ -54,7 +54,7 @@ export default class Cookieguard {
 
         this.settings = { modules, expires };
 
-        window.localStorage.setItem("_jar", JSON.stringify(this.settings));
+        window.localStorage.setItem('_jar', JSON.stringify(this.settings));
 
         this.handle(modules);
     }

@@ -1,14 +1,14 @@
-import Cookieguard from "./src/Cookieguard.js";
+import Cookieguard from './src/Cookieguard.js';
 export default Cookieguard;
 
-import AbstractService from "./src/services/Service.js";
+import AbstractService from './src/services/Service.js';
 export const Service = AbstractService;
 
-import GoogleAnalyticsService from "./src/services/GoogleAnalytics.js";
+import GoogleAnalyticsService from './src/services/GoogleAnalytics.js';
 export const GoogleAnalytics = GoogleAnalyticsService;
 
-import FacebookPixelService from "./src/services/FacebookPixel.js";
+import FacebookPixelService from './src/services/FacebookPixel.js';
 export const FacebookPixel = FacebookPixelService;
 
-import YoutubeEmbedService from "./src/services/YoutubeEmbed.js";
+import YoutubeEmbedService from './src/services/YoutubeEmbed.js';
 export const YoutubeEmbed = YoutubeEmbedService;

@@ -10,7 +10,7 @@ export default class PostMessage {
             {
                 cookieguard: {
                     modules: keys,
-                    type: "enable"
+                    type: 'enable'
                 }
             },
             window
@@ -22,7 +22,7 @@ export default class PostMessage {
             {
                 cookieguard: {
                     modules: keys,
-                    type: "disable"
+                    type: 'disable'
                 }
             },
             window
@@ -34,7 +34,7 @@ export default class PostMessage {
             {
                 cookieguard: {
                     modules: keys,
-                    type: "update"
+                    type: 'update'
                 }
             },
             window
@@ -43,7 +43,7 @@ export default class PostMessage {
 
     _registerListener() {
         window.addEventListener(
-            "message",
+            'message',
             event => {
                 if (!this.origins.includes(event.origin)) {
                     return;
@@ -65,7 +65,7 @@ export default class PostMessage {
         let modules = Object.keys(this.cookieguard.modules);
 
         let origins = modules.map(key => {
-            let url = this.cookieguard.modules[key]["fallbackUrl"];
+            let url = this.cookieguard.modules[key]['fallbackUrl'];
 
             if (url) {
                 let { origin } = new URL(url);
