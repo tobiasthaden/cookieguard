@@ -9,11 +9,13 @@ export default class InstagramEmbed extends Service {
     enable() {
         this._embedScript();
 
-        //
+        this.isEnabled = true;
     }
 
     disable() {
-        //
+        if (this.isEnabled) {
+            throw 'Could not disable Instagram embeds at runtime. Page refresh required.';
+        }
     }
 
     _embedScript() {
