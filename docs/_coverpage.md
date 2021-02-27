@@ -9,7 +9,7 @@
 - No bundle, ES6+ Modules
 - Open Source
 
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/tobiasthaden/cookieguard/)
 [Get Started](getting-started)
 
 ![color](#fbfdff)
