@@ -1,4 +1,4 @@
-# Cookieguard 
+# ![Cookieguard](https://github.com/tobiasthaden/cookieguard/raw/master/docs/_hero.png)
 
 _Handle third party services in compliance with the GDPR_
 
