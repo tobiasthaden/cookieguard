@@ -17,8 +17,25 @@
             href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
         />
         <style>
+            body {
+                background-color: #fbfdff;
+            }
+            .sidebar img {
+                position: absolute;
+                width: 100%;
+                height: 200px;
+                margin: 0 auto;
+                bottom: 5rem;
+            }
             .markdown-section {
                 max-width: 920px;
+            }
+            .token.function,
+            .token.keyword,
+            .markdown-section code,
+            .markdown-section pre {
+                color: #2f77b3;
+                background-color: #eef7ff;
             }
         </style>
     </head>
@@ -31,6 +48,7 @@
                 loadSidebar: true,
                 subMaxLevel: 2,
                 auto2top: true,
+                themeColor: '#FF90A2',
                 search: 'auto',
                 copyCode: {
                     buttonText:

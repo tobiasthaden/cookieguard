@@ -1,12 +1,15 @@
-# Cookieguard
+
+![logo](logo.svg)
+
+# cookieguard
 
 > Handle third party services in compliance with the GDPR
 
-[GitHub](https://github.com/tobiasthaden/cookieguard/)
+- Highly extendable
+- No bundle, ES6+ Modules
+- Open Source
+
+[GitHub](https://github.com/docsifyjs/docsify/)
 [Get Started](getting-started)
 
-<!-- background image -->
-<!-- ![](_media/bg.png) -->
-
-<!-- background color -->
-![color](#f0f0f0)
+![color](#fbfdff)
