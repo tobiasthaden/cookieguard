@@ -3,6 +3,10 @@
   "version": "0.2.1",
   "description": "Handle third party services in compliance with the GDPR",
   "main": "index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tobiasthaden/cookieguard.git"
