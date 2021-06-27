@@ -4,6 +4,9 @@ export default Cookieguard;
 import AbstractService from './src/services/Service.js';
 export const Service = AbstractService;
 
+import ETrackerService from './src/services/ETracker.js';
+export const ETracker = ETrackerService;
+
 import GoogleAnalyticsService from './src/services/GoogleAnalytics.js';
 export const GoogleAnalytics = GoogleAnalyticsService;
 
