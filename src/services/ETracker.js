@@ -6,15 +6,21 @@ export default class ETracker extends Service {
 
         this.id = id;
 
+        window._etracker = null;
+
         this._embedScript();
     }
 
     enable() {
-        _etracker.enableCookies(this.domain);
+        if (_etracker) {
+            _etracker.enableCookies(this.domain);
+        }
     }
 
     disable() {
-        _etracker.disableCookies(this.domain);
+        if (_etracker) {
+            _etracker.disableCookies(this.domain);
+        }
     }
 
     _embedScript() {
