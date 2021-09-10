@@ -13,11 +13,15 @@ export default class GoogleAnalytics extends Service {
 
         window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', this.id, { anonymize_ip: true });
+        window.gtag = () => dataLayer.push(arguments);
+
+        window.gtag('js', new Date());
+
+        this.config({ anonymize_ip: true });
+    }
+
+    config(settings) {
+        window.gtag('config', this.id, settings);
     }
 
     disable() {
