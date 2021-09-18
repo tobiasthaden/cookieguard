@@ -13,7 +13,9 @@ export default class GoogleAnalytics extends Service {
 
         window.dataLayer = window.dataLayer || [];
 
-        window.gtag = () => dataLayer.push(arguments);
+        window.gtag = function () {
+            dataLayer.push(arguments);
+        }
 
         window.gtag('js', new Date());
 
